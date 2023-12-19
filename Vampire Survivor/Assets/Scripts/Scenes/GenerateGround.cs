@@ -12,7 +12,7 @@ public class GenerateGround : MonoBehaviour
 
         if(terrain != null)
         {
-            GameObject spawnedTerrain = Instantiate(terrain, spawnPosition, Quaternion.identity);
+            Instantiate(terrain, spawnPosition, Quaternion.identity);
         }
     }
 
