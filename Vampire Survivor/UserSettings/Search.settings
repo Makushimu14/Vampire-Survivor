@@ -15,9 +15,9 @@ providers = {
 		priority = 50
 		defaultAction = null
 	}
-	asset = {
-		active = true
-		priority = 25
+	adb = {
+		active = false
+		priority = 2500
 		defaultAction = null
 	}
 	log = {
@@ -35,22 +35,22 @@ providers = {
 		priority = 100
 		defaultAction = null
 	}
-	profilermarkers = {
-		active = false
-		priority = 100
-		defaultAction = null
-	}
-	adb = {
-		active = false
-		priority = 2500
-		defaultAction = null
-	}
 	store = {
 		active = true
 		priority = 100
 		defaultAction = null
 	}
+	profilermarkers = {
+		active = false
+		priority = 100
+		defaultAction = null
+	}
 	find = {
+		active = true
+		priority = 25
+		defaultAction = null
+	}
+	asset = {
 		active = true
 		priority = 25
 		defaultAction = null
