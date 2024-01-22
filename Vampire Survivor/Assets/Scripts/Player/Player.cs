@@ -15,7 +15,7 @@ public class Player : Singleton<Player>
     private void increaseLevel()
     {
         Level++;
-        if (Level % 10 == 0 || Level % 10 == 1 )
+        if (Level > 1 && (Level % 10 == 0 || Level % 10 == 1))
         {
             ChangeGround.Change = true;
         }
