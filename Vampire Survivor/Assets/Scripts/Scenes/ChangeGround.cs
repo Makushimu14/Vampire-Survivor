@@ -14,7 +14,7 @@ public class ChangeGround : MonoBehaviour
         ground.material = GrassMaterial;
     }
 
-    void Start()
+    void Update()
     {
         ground = GetComponent<MeshRenderer>();
 
