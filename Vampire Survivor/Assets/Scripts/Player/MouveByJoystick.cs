@@ -17,5 +17,18 @@ public class MouveByJoystick : MonoBehaviour
         {
             animator.SetFloat("Speed", inputMouvement.magnitude * speed);
         }
+
+        verifyPlayerPosition();
+    }
+
+    private void verifyPlayerPosition()
+    {
+        if (rigid_body.position.x < Globals.MinX + 50
+            || rigid_body.position.y < Globals.MinY + 50
+            || rigid_body.position.x > Globals.MaxX - 50
+            || rigid_body.position.y > Globals.MaxY - 50)
+        {
+            GenerateGround.Instance.Generate();
+        }
     }
 }

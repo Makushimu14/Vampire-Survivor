@@ -5,19 +5,10 @@ public class ChangeGround : MonoBehaviour
     public static bool Change = false;
     public Material GrassMaterial = null;
     public Material LavaMaterial = null;
-    private MeshRenderer ground;
     private bool isGrass = true;
-
-    private void Awake()
-    {
-        ground = GetComponent<MeshRenderer>();
-        ground.material = GrassMaterial;
-    }
 
     void Update()
     {
-        ground = GetComponent<MeshRenderer>();
-
         if (Change)
         {
             changeGroung();
@@ -26,15 +17,23 @@ public class ChangeGround : MonoBehaviour
 
     private void changeGroung()
     {
-        ground = GetComponent<MeshRenderer>();
+        // ground = GetComponent<MeshRenderer>();
 
         if (isGrass)
         {
-            ground.material = LavaMaterial;
+            foreach (GameObject terrain in Globals.Terrains)
+            {
+                terrain.GetComponent<MeshRenderer>().material = LavaMaterial;
+            }
+            //ground.material = LavaMaterial;
         }
         else
         {
-            ground.material = GrassMaterial;
+            foreach (GameObject terrain in Globals.Terrains)
+            {
+                terrain.GetComponent<MeshRenderer>().material = GrassMaterial;
+            }
+            //ground.material = GrassMaterial;
         }
 
         Change = false;
