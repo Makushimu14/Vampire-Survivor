@@ -17,15 +17,12 @@ public class ChangeGround : MonoBehaviour
 
     private void changeGroung()
     {
-        // ground = GetComponent<MeshRenderer>();
-
         if (isGrass)
         {
             foreach (GameObject terrain in Globals.Instance.Terrains)
             {
                 terrain.GetComponent<MeshRenderer>().material = LavaMaterial;
             }
-            //ground.material = LavaMaterial;
         }
         else
         {
@@ -33,7 +30,6 @@ public class ChangeGround : MonoBehaviour
             {
                 terrain.GetComponent<MeshRenderer>().material = GrassMaterial;
             }
-            //ground.material = GrassMaterial;
         }
 
         Change = false;

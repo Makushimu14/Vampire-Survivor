@@ -41,12 +41,8 @@ public class GenerateGround : MonoBehaviour
             spawnPosition = Globals.Instance.getNewPosition(playerPosition);
             if (!Globals.Instance.TerrainAlreadyExist(spawnPosition))
             {
-                GameObject terrainCopy1 = Instantiate(terrain);
-                terrainCopy1.GetComponent<MeshRenderer>().material = Globals.Instance.Terrains.First().GetComponent<MeshRenderer>().sharedMaterial;
-                Instantiate(terrainCopy1, spawnPosition, Quaternion.identity);
+                GameObject terrainCopy1 = Instantiate(terrain, spawnPosition, Quaternion.identity); 
                 terrainCopy1.transform.position = spawnPosition;
-                Debug.Log("Position du terrain: " + terrainCopy1.transform.position.x + ", " + terrainCopy1.transform.position.z);
-                Debug.Log("Position du spawnPosition: " + spawnPosition.x + ", " + spawnPosition.z);
                 Globals.Instance.AddTerrain(terrainCopy1);
             }
 
@@ -55,12 +51,8 @@ public class GenerateGround : MonoBehaviour
             spawnPosition = Globals.Instance.getNewPosition(playerPosition);
             if (!Globals.Instance.TerrainAlreadyExist(spawnPosition))
             {
-                GameObject terrainCopy2 = Instantiate(terrain);
-                terrainCopy2.GetComponent<MeshRenderer>().material = Globals.Instance.Terrains.First().GetComponent<MeshRenderer>().sharedMaterial;
-                Instantiate(terrainCopy2, spawnPosition, Quaternion.identity);
+                GameObject terrainCopy2 = Instantiate(terrain, spawnPosition, Quaternion.identity);
                 terrainCopy2.transform.position = spawnPosition;
-                Debug.Log("Position du terrain: " + terrainCopy2.transform.position.x + ", " + terrainCopy2.transform.position.z);
-                Debug.Log("Position du spawnPosition: " + spawnPosition.x + ", " + spawnPosition.z);
                 Globals.Instance.AddTerrain(terrainCopy2);
             }
 
@@ -70,12 +62,8 @@ public class GenerateGround : MonoBehaviour
             spawnPosition = Globals.Instance.getNewPosition(playerPosition);
             if (!Globals.Instance.TerrainAlreadyExist(spawnPosition))
             {
-                GameObject terrainCopy3 = Instantiate(terrain);
-                terrainCopy3.GetComponent<MeshRenderer>().material = Globals.Instance.Terrains.First().GetComponent<MeshRenderer>().sharedMaterial;
-                Instantiate(terrainCopy3, spawnPosition, Quaternion.identity);
+                GameObject terrainCopy3 = Instantiate(terrain, spawnPosition, Quaternion.identity);
                 terrainCopy3.transform.position = spawnPosition;
-                Debug.Log("Position du terrain: " + terrainCopy3.transform.position.x + ", " + terrainCopy3.transform.position.z);
-                Debug.Log("Position du spawnPosition: " + spawnPosition.x + ", " + spawnPosition.z);
                 Globals.Instance.AddTerrain(terrainCopy3);
             }
 
@@ -84,12 +72,8 @@ public class GenerateGround : MonoBehaviour
             spawnPosition = Globals.Instance.getNewPosition(playerPosition);
             if (!Globals.Instance.TerrainAlreadyExist(spawnPosition))
             {
-                GameObject terrainCopy4 = Instantiate(terrain);
-                terrainCopy4.GetComponent<MeshRenderer>().material = Globals.Instance.Terrains.First().GetComponent<MeshRenderer>().sharedMaterial;
-                Instantiate(terrainCopy4, spawnPosition, Quaternion.identity);
+                GameObject terrainCopy4 =  Instantiate(terrain, spawnPosition, Quaternion.identity);
                 terrainCopy4.transform.position = spawnPosition;
-                Debug.Log("Position du terrain: " + terrainCopy4.transform.position.x + ", " + terrainCopy4.transform.position.z);
-                Debug.Log("Position du spawnPosition: " + spawnPosition.x + ", " + spawnPosition.z);
                 Globals.Instance.AddTerrain(terrainCopy4);
             }
         }
