@@ -21,7 +21,7 @@ public class ChangeGround : MonoBehaviour
 
         if (isGrass)
         {
-            foreach (GameObject terrain in Globals.Terrains)
+            foreach (GameObject terrain in Globals.Instance.Terrains)
             {
                 terrain.GetComponent<MeshRenderer>().material = LavaMaterial;
             }
@@ -29,7 +29,7 @@ public class ChangeGround : MonoBehaviour
         }
         else
         {
-            foreach (GameObject terrain in Globals.Terrains)
+            foreach (GameObject terrain in Globals.Instance.Terrains)
             {
                 terrain.GetComponent<MeshRenderer>().material = GrassMaterial;
             }
