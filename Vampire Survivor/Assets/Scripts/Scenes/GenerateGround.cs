@@ -25,7 +25,6 @@ public class GenerateGround : MonoBehaviour
         terrain.GetComponent<MeshRenderer>().material = GrassMaterial;
         Instantiate(terrain, spawnPosition, Quaternion.identity);
         Globals.Instance.AddTerrain(terrain);
-
     }
 
     public void Generate()

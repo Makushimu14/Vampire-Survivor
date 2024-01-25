@@ -1,9 +1,16 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Globals : Singleton<Globals>
 {
+    public Canvas UILevel = null;
+    public Canvas UIBonus = null;
+
+
+    #region Terrain
     public List<GameObject> Terrains = new List<GameObject>();
+
     public static float MaxX = 0.0f;
     public static float MaxZ = 0.0f;
     public static float MinX = 0.0f;
@@ -54,4 +61,39 @@ public class Globals : Singleton<Globals>
 
         return false;
     }
+    #endregion
+
+    #region Monster
+    public List<GameObject> Monsters = new List<GameObject>();
+    public void AddMonster(GameObject monster)
+    {
+        Monsters.Add(monster);
+    }
+
+    public void RemoveMonster(GameObject monster)
+    {
+        try
+        {
+            Monsters.Remove(monster);
+        }
+        catch(Exception e)
+        {
+            Debug.LogException(e);
+        }
+    }
+
+    #endregion
+
+    public float GetPourcentage(int value, int max)
+    {
+        float result = value * 100 / max;
+
+        return result;
+    }
+}
+
+public enum TerrainTexture
+{
+    GRASS,
+    LAVA
 }

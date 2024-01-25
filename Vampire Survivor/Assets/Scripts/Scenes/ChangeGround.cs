@@ -1,23 +1,14 @@
 using UnityEngine;
 
-public class ChangeGround : MonoBehaviour
+public class ChangeGround : Singleton<ChangeGround>
 {
-    public static bool Change = false;
     public Material GrassMaterial = null;
     public Material LavaMaterial = null;
-    private bool isGrass = true;
 
-    void Update()
-    {
-        if (Change)
-        {
-            changeGroung();
-        }
-    }
 
-    private void changeGroung()
+    public void Change(TerrainTexture texture)
     {
-        if (isGrass)
+        if (texture == TerrainTexture.LAVA)
         {
             foreach (GameObject terrain in Globals.Instance.Terrains)
             {
@@ -31,8 +22,5 @@ public class ChangeGround : MonoBehaviour
                 terrain.GetComponent<MeshRenderer>().material = GrassMaterial;
             }
         }
-
-        Change = false;
-        isGrass = false;
     }
 }
