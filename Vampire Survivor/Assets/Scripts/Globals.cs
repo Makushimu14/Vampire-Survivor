@@ -1,12 +1,47 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Globals : Singleton<Globals>
+public class Globals : MonoBehaviour
 {
+    private static Globals instance = null;
+
+    public static Globals Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<Globals>();
+
+                if (instance == null)
+                {
+                    GameObject go = new GameObject("Globals");
+                    instance = go.AddComponent<Globals>();
+                    DontDestroyOnLoad(go);
+                }
+            }
+
+            return instance;
+        }
+    }
+
     public Canvas UILevel = null;
     public Canvas UIBonus = null;
 
+    public void Update()
+    {
+        if ( Player.Instance != null && !Player.Instance.EnVie)
+        {
+            IsGameOver = true;
+            SceneManager.LoadScene("StartMenu");
+        }
+    }
+
+    #region Menu
+    public bool IsGameOver = false;
+    #endregion
 
     #region Terrain
     public List<GameObject> Terrains = new List<GameObject>();
@@ -36,6 +71,11 @@ public class Globals : Singleton<Globals>
         {
             MinZ = terrain.GetComponent<Transform>().position.z;
         }
+    }
+
+    public void ClearTerrains()
+    {
+        Terrains.Clear();
     }
 
     public Vector3 getNewPosition(Vector3 terrainPosition)
@@ -80,6 +120,11 @@ public class Globals : Singleton<Globals>
         {
             Debug.LogException(e);
         }
+    }
+
+    public void ClearMonster()
+    {
+        Monsters.Clear();
     }
 
     #endregion

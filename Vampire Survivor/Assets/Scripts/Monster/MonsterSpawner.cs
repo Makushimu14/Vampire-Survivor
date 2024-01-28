@@ -11,7 +11,7 @@ public class MonsterSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Globals.Instance.ClearMonster();
     }
 
     // Update is called once per frame

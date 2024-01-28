@@ -19,6 +19,7 @@ public class GenerateGround : MonoBehaviour
             Destroy(this.gameObject);
         }
 
+        Globals.Instance.ClearTerrains();
 
         Vector3 spawnPosition = new Vector3(0f, 0f, 0f);
         terrain.transform.position = spawnPosition;
