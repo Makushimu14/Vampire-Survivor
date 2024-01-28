@@ -17,7 +17,6 @@ public class Player : Singleton<Player>
     private void increaseLevel()
     {
         Level++;
-
         Globals.Instance.UILevel.enabled = false;
         Globals.Instance.UIBonus.enabled = true;
 
@@ -36,7 +35,7 @@ public class Player : Singleton<Player>
 
     public void IncreaseSpeed()
     {
-        Speed += 5.0f;
+        Speed += 1.0f;
     }
 
     public void IncreaseEXP(int exp)
@@ -74,5 +73,15 @@ public class Player : Singleton<Player>
         HP += 50;
 
         HPText.text = HP.ToString();
+    }
+
+    public void ResetPerf()
+    {
+        Speed = 3.0f;
+        HP = 100;
+        EXP = 0;
+        Level = 0;
+        Power = 50;
+        EnVie = true;
     }
 }

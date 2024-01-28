@@ -21,8 +21,18 @@ public class OnScreenClicked : MonoBehaviour
                     Monster monstre = objetTouche.GetComponent<Monster>();
                     if (monstre != null && Player != null)
                     {
+                        if(monstre.HP <= Player.Power)
+                        {
+                            Player.IncreaseEXP(monstre.HP);
+                        }
+                        else
+                        {
+                            Player.IncreaseEXP(Player.Power);
+                        }
+
                         monstre.DecreaseHP(Player.Power);
-                        Player.IncreaseEXP(Player.Power);
+                        
+                        
                     }
                 }
             }

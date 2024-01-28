@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class MonsterSpawner : MonoBehaviour
 {
-    public GameObject Monster = null;
+    public GameObject Monster1 = null;
+    public GameObject Monster2 = null;
+    public GameObject Monster3 = null;
     public GameObject Boss1 = null;
     public GameObject Boss2 = null;
 
@@ -26,7 +28,24 @@ public class MonsterSpawner : MonoBehaviour
                 spawnPosition.x += 100;
             }
 
-            GameObject monster = Instantiate(Monster, spawnPosition, Quaternion.identity);
+            GameObject monster;
+            int monsterType = Random.Range(1, 3);
+
+            switch (monsterType)
+            {
+                case 1:
+                    monster = Instantiate(Monster1, spawnPosition, Quaternion.identity);
+                    break;
+                case 2:
+                    monster = Instantiate(Monster2, spawnPosition, Quaternion.identity);
+                    break;
+                case 3:
+                    monster = Instantiate(Monster3, spawnPosition, Quaternion.identity);
+                    break;
+                default:
+                    monster = Instantiate(Monster1, spawnPosition, Quaternion.identity);
+                    break;
+            }
 
             Globals.Instance.AddMonster(monster);
         }

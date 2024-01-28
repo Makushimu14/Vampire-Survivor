@@ -3,30 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Globals : MonoBehaviour
+public class Globals : Singleton<Globals>
 {
-    private static Globals instance = null;
-
-    public static Globals Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<Globals>();
-
-                if (instance == null)
-                {
-                    GameObject go = new GameObject("Globals");
-                    instance = go.AddComponent<Globals>();
-                    DontDestroyOnLoad(go);
-                }
-            }
-
-            return instance;
-        }
-    }
-
     public Canvas UILevel = null;
     public Canvas UIBonus = null;
 
@@ -34,14 +12,11 @@ public class Globals : MonoBehaviour
     {
         if ( Player.Instance != null && !Player.Instance.EnVie)
         {
-            IsGameOver = true;
+            GlobalsMenu.Instance.IsGameOver = true;
+            Player.Instance.ResetPerf();
             SceneManager.LoadScene("StartMenu");
         }
     }
-
-    #region Menu
-    public bool IsGameOver = false;
-    #endregion
 
     #region Terrain
     public List<GameObject> Terrains = new List<GameObject>();

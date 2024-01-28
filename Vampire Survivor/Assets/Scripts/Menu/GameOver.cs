@@ -8,7 +8,7 @@ public class GameOver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (Globals.Instance != null && Globals.Instance.IsGameOver)
+        if (GlobalsMenu.Instance.IsGameOver)
         {
             Text.text = "GAME OVER";
         }
