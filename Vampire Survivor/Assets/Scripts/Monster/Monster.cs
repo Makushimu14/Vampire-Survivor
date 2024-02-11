@@ -8,7 +8,6 @@ public class Monster : MonoBehaviour
     public Rigidbody body = null;
     public int HP = 0;
     private Transform player = null;
-    public GameObject Quad = null;
 
 
     void Start()
@@ -42,7 +41,6 @@ public class Monster : MonoBehaviour
         if(HP - power <= 0)
         {
             Globals.Instance.RemoveMonster(gameObject);
-            setQuad();
             Destroy(gameObject);
 
         }
@@ -50,10 +48,5 @@ public class Monster : MonoBehaviour
         {
             HP -= power;
         }
-    }
-
-    private void setQuad()
-    {
-        Quad.transform.position = new Vector3(transform.position.x, 1, transform.position.z);
     }
 }

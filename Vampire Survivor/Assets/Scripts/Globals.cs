@@ -1,13 +1,15 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Globals : Singleton<Globals>
 {
     public Canvas UILevel = null;
     public Canvas UIBonus = null;
     public Canvas UIGameOver = null;
+    public TextMeshProUGUI BonusText = null;
 
     public void Update()
     {
@@ -110,6 +112,44 @@ public class Globals : Singleton<Globals>
         float result = value * 100 / max;
 
         return result;
+    }
+
+    public List<GameObject> Bonus = new List<GameObject>();
+
+    public void AddBonus(GameObject bonus)
+    {
+        Bonus.Add(bonus);
+    }
+
+    public void RemoveBonus(GameObject bonus)
+    {
+        try
+        {
+            Bonus.Remove(bonus);
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e);
+        }
+    }
+
+    public void ClearBonus()
+    {
+        Bonus.Clear();
+    }
+
+    public void SetBonusText(string text)
+    {
+        StartCoroutine(ShowText(text));
+    }
+
+    IEnumerator ShowText(string text)
+    {
+        BonusText.text = text;
+
+        yield return new WaitForSeconds(2f);
+
+        BonusText.text = string.Empty;
     }
 }
 
