@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 18b9e9fe8bba6cc4699e7d01f848b6a4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Monster1: {fileID: 6739214068756722415, guid: 509c466eada0c95488a8ea9d28e1f32f, type: 3}
+  - Monster2: {fileID: 5934257716456290005, guid: d8273de114ac9bb408f2201730bb2501, type: 3}
+  - Monster3: {fileID: 801407920553098079, guid: f9349c2099903fb469d30212927cf303, type: 3}
+  - Boss1: {fileID: 5109082118042173989, guid: adb98079a218c5740b8dbdca8f55578a, type: 3}
+  - Boss2: {fileID: 1877585220480007855, guid: 1640315095179574a8b904866784dee7, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

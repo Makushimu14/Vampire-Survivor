@@ -1,39 +1,54 @@
+using TMPro;
+using UnityEngine.UI;
+using UnityEngine;
+
 public class Player : Singleton<Player>
 {
 
-    public static float Speed = 10.0f;
+    public float Speed = 3.0f;
     public int HP = 100;
     public int EXP = 0;
-    public int Level = 0;
-    public int Power = 10;
+    public static int Level = 0;
+    public int Power = 50;
     public bool EnVie = true;
+    public Slider ProgressBar = null;
+    public TextMeshProUGUI HPText = null;
 
-    public void Update()
-    {
-        increaseLevel();
-    }
     private void increaseLevel()
     {
         Level++;
-        if (Level > 1 && (Level % 10 == 0 || Level % 10 == 1))
+        Globals.Instance.UILevel.enabled = false;
+        Globals.Instance.UIBonus.enabled = true;
+
+        Time.timeScale = 0f;
+
+        if (Level > 1 && Level % 10 == 0)
         {
-            ChangeGround.Change = true;
+            ChangeGround.Instance.Change(TerrainTexture.LAVA);
+            MonsterSpawner.spwanBoss = true;
+        }
+        if(Level > 1 &&  Level % 10 == 1)
+        {
+            ChangeGround.Instance.Change(TerrainTexture.GRASS);
         }
     }
 
     public void IncreaseSpeed()
     {
-        Speed += 5.0f;
+        Speed += 1.0f;
     }
 
     public void IncreaseEXP(int exp)
     {
         EXP += exp;
-        if(EXP > 200)
+
+        if(EXP >= 200 + 200 * Level)
         {
-            EXP -= 200;
+            EXP -= (200 + 200 * Level);
             increaseLevel();
         }
+
+        ProgressBar.value = Globals.Instance.GetPourcentage(EXP, 200 + 200 * Level);
     }
 
     public void IncreasePower()
@@ -49,10 +64,24 @@ public class Player : Singleton<Player>
         {
             EnVie = false;
         }
+
+        HPText.text = HP.ToString();
     }
 
     public void IncreaseHP()
     {
         HP += 50;
+
+        HPText.text = HP.ToString();
+    }
+
+    public void ResetPerf()
+    {
+        Speed = 3.0f;
+        HP = 100;
+        EXP = 0;
+        Level = 0;
+        Power = 50;
+        EnVie = true;
     }
 }
