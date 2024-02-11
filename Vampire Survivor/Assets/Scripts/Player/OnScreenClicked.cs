@@ -31,8 +31,6 @@ public class OnScreenClicked : MonoBehaviour
                         }
 
                         monstre.DecreaseHP(Player.Power);
-                        
-                        
                     }
                 }
             }

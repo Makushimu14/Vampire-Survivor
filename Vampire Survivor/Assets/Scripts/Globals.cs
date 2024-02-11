@@ -7,14 +7,15 @@ public class Globals : Singleton<Globals>
 {
     public Canvas UILevel = null;
     public Canvas UIBonus = null;
+    public Canvas UIGameOver = null;
 
     public void Update()
     {
         if ( Player.Instance != null && !Player.Instance.EnVie)
         {
-            GlobalsMenu.Instance.IsGameOver = true;
             Player.Instance.ResetPerf();
-            SceneManager.LoadScene("StartMenu");
+            UIGameOver.enabled = true;
+            Time.timeScale = 0f;
         }
     }
 
